@@ -30,7 +30,17 @@ int main(int argc, char **argv)
         {
              for(int i {0}; i < 3; ++i)
              {
-                 in_image.at<Vec3b>(r,c)[i] = 128;
+                 int total {in_image.at<Vec3b>(r,c)[i]};
+                 cout << (int) in_image.at<Vec3b>(r,c+1)[i] << endl;
+                 //if(in_image.at<Vec3b>(r,c-1)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 if(in_image.at<Vec3b>(r,c+1)[i]) total += (int) in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r-1,c-1)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r+1,c)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r-1,c)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r+1,c)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r+1,c+1)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //if(in_image.at<Vec3b>(r+1,c-1)[i]) total += in_image.at<Vec3b>(r,c)[i];
+                 //in_image.at<Vec3b>(r,c)[i] = total/10;
                  //    saturate_cast<uchar>(in_image.at<Vec3b>(r,c)[i]);
              }
         }
