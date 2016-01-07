@@ -6,6 +6,12 @@ using namespace cv;
 
 int main(int argc, char **argv)
 {
+    if(argc != 5)
+    {
+        cout << "Invalid number of parameters" << endl;
+        return 1;
+    }
+
     Mat in_image, out_image;
 
     in_image = imread(argv[1], IMREAD_UNCHANGED);
